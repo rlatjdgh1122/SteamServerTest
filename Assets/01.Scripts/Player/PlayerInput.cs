@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
            movePos = cam.ScreenToWorldPoint(Input.mousePosition);
         }
