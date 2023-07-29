@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class MouseFollow : MonoBehaviour
 {
-    private float offset = -.8f;
-    private Vector3 tempPos;
+    public float offset = 10.1f;
     private Camera cam;
+    private Vector3 tempPos;
+
+    private Ray ray;
+    private RaycastHit hit;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -17,7 +21,10 @@ public class MouseFollow : MonoBehaviour
     }
     private void Update()
     {
-        tempPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y, 10));
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 1000))
+            tempPos = hit.point;
+
         transform.position = new Vector3(tempPos.x, offset, tempPos.z);
     }
 }

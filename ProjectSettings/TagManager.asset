@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PointA
   - PointB
+  - Arrow
+  - Circle
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class PlayerObjectContoller : NetworkBehaviour
 {
     public GameObject PlayerModel;
-    private PlayerInput playerInput;
-
 
     [SyncVar] public int ConnectionID;
     [SyncVar] public int PlayerIdNumber;
@@ -31,16 +29,10 @@ public class PlayerObjectContoller : NetworkBehaviour
             return manager = CustomNetworkManager.singleton as CustomNetworkManager;
         }
     }
-
-    private void Awake()
-    {
-        playerInput = PlayerModel.GetComponent<PlayerInput>();
-    }
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
 
-        playerInput.enabled = false;
         PlayerModel.SetActive(false);
     }
     public void Update()
@@ -53,7 +45,7 @@ public class PlayerObjectContoller : NetworkBehaviour
             }
             if (isOwned)
             {
-                playerInput.enabled = true;
+
             }
         }
     }
