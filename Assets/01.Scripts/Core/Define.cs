@@ -2,6 +2,13 @@ using UnityEngine;
 
 namespace Core
 {
+    public enum WayType
+    {
+        Front,
+        Back,
+        Left,
+        Right,
+    }
     class Define
     {
 
