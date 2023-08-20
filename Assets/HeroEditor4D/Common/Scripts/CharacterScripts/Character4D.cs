@@ -26,7 +26,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
         public List<GameObject> Shadows;
 
         [Header("Animation")]
-        public Animator Animator;
+        public Animator Animator;   
         public AnimationManager AnimationManager;
 
         [Header("Other")]
@@ -71,7 +71,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
                 stateHandler.StateExit.AddListener(() => SetExpression("Default"));
             }
 
-            Animator.keepAnimatorStateOnDisable = true;
+            Animator.keepAnimatorControllerStateOnDisable = true;
         }
 
         public void Initialize()

@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -246,6 +247,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1109,6 +1122,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BackHead: 21300012
+      FrontArmR: 21300002
+      RightBody: 21300064
+      BackHandL: 21300052
+      RightSleeveR: 21300076
+      LeftFingersR: 21300058
+      BackFingersR: 21300046
+      FrontBody: 21300004
+      BackArmL: 21300016
+      LeftLegR: 21300030
+      LeftBody: 21300028
+      RightHead: 21300060
+      BackArmR: 21300020
+      LeftHandL: 21300040
+      FrontSleeveL: 21300044
+      RightLegR: 21300072
+      FrontArmL: 21300006
+      FrontLegR: 21300008
+      FrontHandR: 21300048
+      FrontLegL: 21300010
+      RightFingersL: 21300074
+      BackFingersL: 21300054
+      RightHandR: 21300078
+      BackLegL: 21300022
+      RightArmR: 21300066
+      BackHandR: 21300038
+      RightLegL: 21300070
+      LeftArmR: 21300026
+      FrontHandL: 21300036
+      RightHandL: 21300068
+      LeftSleeveL: 21300056
+      LeftArmL: 21300034
+      LeftHandR: 21300042
+      FrontHead: 21300000
+      BackBody: 21300018
+      FrontSleeveR: 21300050
+      LeftLegL: 21300032
+      RightArmL: 21300062
+      BackLegR: 21300024
+      LeftHead: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
