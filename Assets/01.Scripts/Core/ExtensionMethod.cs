@@ -1,15 +1,22 @@
 using Core;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public static class ExtensionMethod
 {
-    public static void Select(this Dictionary<WayType, GameObject> dic, Action action)
+    public static void Select<Tkey,Tvalue>(this Dictionary<Tkey, Tvalue> list, Tkey value, Action<Tvalue> selectAct, Action<Tvalue> unSelectAct)
     {
-        for(int i = 0; i < dic.Count; i++)
+        foreach (Tkey item in Enum.GetValues(typeof(Tkey)))
         {
-            action.Invoke();
+            if (item.ToString() == value.ToString())
+            {
+                selectAct(list[value]);
+            }
+            else
+                unSelectAct(list[item]);
         }
     }
 }
