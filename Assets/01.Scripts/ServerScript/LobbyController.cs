@@ -43,7 +43,6 @@ public class LobbyController : MonoBehaviour
     }
 
     public void ReadyPlayer()
-
     {
         LocalPlayerController.ChangeReady();
     }
@@ -127,7 +126,7 @@ public class LobbyController : MonoBehaviour
             playerListItems.Add(NewPlayerItemScript);
         }
         PlayerItemCreated = true;
-    }   
+    }
     public void CreateClientPlayerItem()
     {
         foreach (PlayerObjectContoller player in Manager.GamePlayers)
@@ -162,7 +161,7 @@ public class LobbyController : MonoBehaviour
                     playerListItemScript.Ready = player.Ready;
                     playerListItemScript.SetPlayerValues();
 
-                    if(player == LocalPlayerController)
+                    if (player == LocalPlayerController)
                     {
                         UpdateButton();
                     }

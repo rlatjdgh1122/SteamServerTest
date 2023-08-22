@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerObjectContoller : NetworkBehaviour
 {
-    public GameObject PlayerModel;
-
     [SyncVar] public int ConnectionID;
     [SyncVar] public int PlayerIdNumber;
     [SyncVar] public ulong PlayerSteamID;
@@ -32,10 +30,8 @@ public class PlayerObjectContoller : NetworkBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-
-        PlayerModel.SetActive(false);
     }
-    public void Update()
+    /*public void Update()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
@@ -48,7 +44,7 @@ public class PlayerObjectContoller : NetworkBehaviour
 
             }
         }
-    }
+    }*/
     public override void OnStartAuthority()
     {
         CmdSetPlayerName(SteamFriends.GetPersonaName().ToString());

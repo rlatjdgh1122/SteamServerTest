@@ -8,13 +8,20 @@ using System.Linq;
 
 public class AgentMovement : NetworkBehaviour
 {
-    public int moveSpeed = 3;
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] private int moveSpeed = 3;
 
-    private Dictionary<WayType, GameObject> wayObjects = new();
-    private WayType currnetWayType;
+    public Dictionary<WayType, GameObject> wayObjects = new();
+    public WayType currnetWayType;
 
-    private Vector2 direction { get; set; }
     private Vector2 inputVec { get; set; }
+    private Vector2 checkVec { get; set; }
+
+    private Rigidbody2D _rb;
+    private void Awake()
+    {
+        _rb = (Rigidbody2D)GetComponent("Rigidbody2D");
+    }
     void Start()
     {
         foreach (WayType item in Enum.GetValues(typeof(WayType)))
@@ -22,56 +29,39 @@ public class AgentMovement : NetworkBehaviour
             GameObject obj = transform.Find(item.ToString()).gameObject;
             wayObjects.Add(item, obj);
         }
-    }
 
-    void Update()
-    {
-        SetDirection();
+        _inputReader.MovementEvent += HandleMovement;
     }
-    private void SetDirection()
+    private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction = Vector2.left;
-            currnetWayType = WayType.Left;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            direction = Vector2.right;
-            currnetWayType = WayType.Right;
-        }
-        else if (Input.GetKey(KeyCode.W))
-        {
-            direction = Vector2.up;
-            currnetWayType = WayType.Back;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            direction = Vector2.down;
-            currnetWayType = WayType.Front;
-        }
-        else
-        {
-            currnetWayType = WayType.Front;
-            return;
-        }
-
-        Move(direction);
-        SetAnimation(direction);
+        //if (!isOwned) return;
+        _rb.velocity = (inputVec * moveSpeed);
     }
-
-    private void Move(Vector2 dir)
+    private void HandleMovement(Vector2 move)
     {
-        Debug.Log("¿òÁ÷ÀÓ");
-        transform.Translate(dir * moveSpeed * Time.deltaTime);
+        Debug.Log(inputVec);
+        inputVec = move;
+
+
+        if (inputVec.x > 0) currnetWayType = WayType.Right;
+        else if (inputVec.x < 0) currnetWayType = WayType.Left;
+        else if (inputVec.y > 0) currnetWayType = WayType.Back;
+        else if (inputVec.y < 0) currnetWayType = WayType.Front;
+        else currnetWayType = WayType.Front;
+
+        SetAnimation(inputVec);
     }
     private void SetAnimation(Vector2 dir)
     {
-        if (inputVec == dir) return;
-        inputVec = dir;
+        if (checkVec == dir) return;
+        checkVec = dir;
 
         wayObjects.Select(currnetWayType,
             p => p.SetActive(true),
             p => p.SetActive(false));
+    }
+    private void OnDestroy()
+    {
+        _inputReader.MovementEvent -= HandleMovement;
     }
 }
