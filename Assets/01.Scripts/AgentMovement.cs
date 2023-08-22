@@ -6,7 +6,7 @@ using System;
 using Mirror;
 using System.Linq;
 
-public class AgentMovement : MonoBehaviour
+public class AgentMovement : NetworkBehaviour
 {
     public int moveSpeed = 3;
 
@@ -28,7 +28,6 @@ public class AgentMovement : MonoBehaviour
     {
         SetDirection();
     }
-
     private void SetDirection()
     {
         if (Input.GetKey(KeyCode.A))
