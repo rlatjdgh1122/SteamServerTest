@@ -97,7 +97,7 @@ public class LobbyController : MonoBehaviour
     public void UpdatePlayerList()
     {
         if (!PlayerItemCreated) CreateHostPlayerItem();
-        if (playerListItems.Count < manager.GamePlayers.Count) CreateClientPlayerItem();
+        if (playerListItems.Count < manager.GamePlayers.Count)CreateClientPlayerItem();
         if (playerListItems.Count > manager.GamePlayers.Count) RemovePlayerItem();
         if (playerListItems.Count == Manager.GamePlayers.Count) UpdatePlayerItem();
     }

@@ -32,6 +32,8 @@ public class LobbiesListManager : MonoBehaviour
         hostButton.SetActive(false);
 
         lobbiesMenu.SetActive(true);
+
+        SteamLobby.Instance.GetLobbiesList();
     }
     public void BackListOfLobbies()
     {

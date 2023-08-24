@@ -17,12 +17,10 @@ public class LobbyDataEntry : MonoBehaviour
         if (lobbyName == "")
         {
             lobbyNameText.text = "Empty";
-
         }
         else
         {
             lobbyNameText.text = lobbyName;
-
         }
     }
     public void JoinLobby()
