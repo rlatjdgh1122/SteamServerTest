@@ -24,13 +24,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
-                    "type": "Value",
-                    "id": "b1132993-9b2f-4133-8131-56b3b7c4376a",
-                    "expectedControlType": "Vector2",
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "bab4bcfc-d2e6-4c2c-89fb-1d4e388eae66",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -157,12 +157,12 @@
                 },
                 {
                     "name": "",
-                    "id": "534ebd63-daca-4879-acfc-b29722c0d266",
-                    "path": "<Mouse>/position",
+                    "id": "135e7bcd-5c71-4099-a287-e400a3df3bd7",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

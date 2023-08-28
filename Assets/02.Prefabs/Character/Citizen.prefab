@@ -439,6 +439,7 @@ MonoBehaviour:
   syncInterval: 0
   _inputReader: {fileID: 0}
   moveSpeed: 3
+  currnetWayType: 0
 --- !u!114 &496036616105848781
 MonoBehaviour:
   m_ObjectHideFlags: 0

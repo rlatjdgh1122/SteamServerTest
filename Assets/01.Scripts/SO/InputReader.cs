@@ -9,6 +9,7 @@ using static Controls;
 public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<Vector2> MovementEvent;
+    public event Action<bool> RunEvent;
 
     private Controls _controlAction;
 
@@ -31,8 +32,9 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
 
     }
-    public void OnAim(InputAction.CallbackContext context)
-    {
 
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        RunEvent?.Invoke(context.performed);
     }
 }

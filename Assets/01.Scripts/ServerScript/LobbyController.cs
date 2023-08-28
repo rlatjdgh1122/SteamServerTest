@@ -19,7 +19,7 @@ public class LobbyController : MonoBehaviour
     public ulong CurrentLobbyID;
     public bool PlayerItemCreated = false;
     private List<PlayerListItem> playerListItems = new();
-    public PlayerObjectContoller LocalPlayerController;
+    private  PlayerObjectContoller LocalPlayerController;
 
     public Button StartGameButton;
     public TextMeshProUGUI ReadyBottonText;

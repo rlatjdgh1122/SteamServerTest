@@ -26,7 +26,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
         public List<GameObject> Shadows;
 
         [Header("Animation")]
-        public Animator Animator;   
+        public Animator Animator;
         public AnimationManager AnimationManager;
 
         [Header("Other")]

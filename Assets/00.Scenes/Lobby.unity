@@ -1207,10 +1207,9 @@ MonoBehaviour:
   LobbyNameText: {fileID: 1998912897}
   PlayerListViewContect: {fileID: 2034053568}
   PlayerListItemPrefab: {fileID: 6217476880771404082, guid: 2ea524ce7da51e7488e6f4d37612e56d, type: 3}
-  LocalPlayerObject: {fileID: 0}
+  LocalPlayerObject: {fileID: 3517694813636529026, guid: 23569d5479ca39941830a8f5747f9e96, type: 3}
   CurrentLobbyID: 0
   PlayerItemCreated: 0
-  LocalPlayerController: {fileID: 2849091341668670837, guid: fdf327f217284fc4b97d3549666fdb42, type: 3}
   StartGameButton: {fileID: 588287547}
   ReadyBottonText: {fileID: 1999556372}
 --- !u!4 &1408400303

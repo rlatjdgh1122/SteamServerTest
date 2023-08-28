@@ -1620,9 +1620,9 @@ MonoBehaviour:
   autoStartServerBuild: 1
   autoConnectClientBuild: 0
   sendRate: 30
-  offlineScene: 
+  offlineScene: Assets/00.Scenes/MainMenu.unity
   onlineScene: Assets/00.Scenes/Lobby.unity
-  transport: {fileID: 0}
+  transport: {fileID: 1606155090}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
