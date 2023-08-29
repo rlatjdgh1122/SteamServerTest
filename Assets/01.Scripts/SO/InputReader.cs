@@ -13,14 +13,14 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     private Controls _controlAction;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (_controlAction == null)
         {
             _controlAction = new Controls();
             _controlAction.Player.SetCallbacks(this);
         }
-        _controlAction.Player.Enable();
+        _controlAction.Player.Enable(); 
     }
 
     public void OnMovement(InputAction.CallbackContext context)
