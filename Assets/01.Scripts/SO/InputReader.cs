@@ -37,9 +37,13 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed) //수행중인 상태일때
+        {
             RunEvent?.Invoke(true);
+        }
         else
+        {
             RunEvent?.Invoke(false);
+        }
     }
 }
