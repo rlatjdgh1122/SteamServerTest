@@ -17511,6 +17511,7 @@ GameObject:
   - component: {fileID: 4586518810081256177}
   - component: {fileID: 3117865225513964086}
   - component: {fileID: 1243419639351412152}
+  - component: {fileID: 9030474685374891151}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -17572,9 +17573,7 @@ MonoBehaviour:
   syncInterval: 0
   _character: {fileID: 8154687364687402761}
   _inputReader: {fileID: 11400000, guid: d74c0212e881ff64fb3a831a156ccef7, type: 2}
-  moveSpeed: 3
-  currentSpeed: 0
-  isRun: 0
+  _moveSpeed: 0
   currnetWayType: 0
 --- !u!114 &4586518810081256177
 MonoBehaviour:
@@ -17648,6 +17647,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9030474685374891151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500912030424763579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728d2eebd4ef2ac498cb45b7ee6d421c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _GrabObject: {fileID: 0}
+  _inputReader: {fileID: 11400000, guid: d74c0212e881ff64fb3a831a156ccef7, type: 2}
+  Speed: 0
 --- !u!1 &8524452795372179527
 GameObject:
   m_ObjectHideFlags: 0

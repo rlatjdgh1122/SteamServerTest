@@ -5,16 +5,27 @@ using System;
 using Mirror;
 using Assets.HeroEditor4D.Common.Scripts.CharacterScripts;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
-using UnityEngine.TextCore.Text;
 
 public class AgentMovement : NetworkBehaviour
 {
     public Character4D _character;
     [SerializeField] private InputReader _inputReader;
-    [SerializeField] private float moveSpeed = 3;
-    public float currentSpeed = 0;
+    public float _moveSpeed = 3;
+    private float _currentSpeed = 0;
+    public float CurrentSpeed
+    {
+        set
+        {
+            if (isRun)
+                _currentSpeed = Mathf.Clamp(value * 1.5f, 0, 5);
+            else
+                _currentSpeed = Mathf.Clamp(value, 0, 5);
+        }
+        get { return _currentSpeed; }
+    }
 
-    public bool isRun = false;
+    private bool isRun = false;
+    private bool isIdle = false;
 
 
     public Dictionary<WayType, GameObject> wayObjects = new();
@@ -41,25 +52,27 @@ public class AgentMovement : NetworkBehaviour
         }
         _character.AnimationManager.SetState(CharacterState.Idle);
 
-        currentSpeed = moveSpeed;
+        CurrentSpeed = _currentSpeed;
     }
 
     private void HandleRun(bool value)
     {
-        Debug.Log("달리다");
-        _character.AnimationManager.SetState(CharacterState.Run);
-        isRun = value;
-
+        Debug.Log(value);
+        if (isIdle) return;
         if (value)
         {
-            moveSpeed *= 1.5f;
+            isRun = true;
+
+            Debug.Log("달리다");
+            _character.AnimationManager.SetState(CharacterState.Run);
+            CurrentSpeed = _moveSpeed * 1.5f;
         }
-        moveSpeed = currentSpeed;
+        else isRun = false;
     }
 
     private void FixedUpdate()
     {
-        _rb.velocity = (inputVec * moveSpeed);
+        _rb.velocity = (inputVec * CurrentSpeed);
     }
     private void HandleMovement(Vector2 move)
     {
@@ -73,11 +86,20 @@ public class AgentMovement : NetworkBehaviour
 
         SetAnimation(inputVec);
 
-        if (inputVec == Vector2.zero)
-            _character.AnimationManager.SetState(CharacterState.Idle);
+        if (!isRun)
+        {
+            if (inputVec == Vector2.zero)
+            {
+                isIdle = true;
+                _character.AnimationManager.SetState(CharacterState.Idle);
+            }
+            else
+                _character.AnimationManager.SetState(CharacterState.Walk);
+        }
         else
-            _character.AnimationManager.SetState(CharacterState.Walk);
+            isIdle = false;
     }
+
     private void SetAnimation(Vector2 dir)
     {
         if (checkVec == dir) return;

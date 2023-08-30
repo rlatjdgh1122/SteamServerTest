@@ -442,7 +442,6 @@ MonoBehaviour:
   currentSpeed: 0
   isRun: 0
   currnetWayType: 0
-  _character: {fileID: 0}
 --- !u!114 &496036616105848781
 MonoBehaviour:
   m_ObjectHideFlags: 0

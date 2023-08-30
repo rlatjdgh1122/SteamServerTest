@@ -25,9 +25,9 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "bab4bcfc-d2e6-4c2c-89fb-1d4e388eae66",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

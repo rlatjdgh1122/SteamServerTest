@@ -10,6 +10,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<Vector2> MovementEvent;
     public event Action<bool> RunEvent;
+    public event Action FireEvent;
 
     private Controls _controlAction;
 
@@ -20,7 +21,7 @@ public class InputReader : ScriptableObject, IPlayerActions
             _controlAction = new Controls();
             _controlAction.Player.SetCallbacks(this);
         }
-        _controlAction.Player.Enable(); 
+        _controlAction.Player.Enable();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -30,11 +31,15 @@ public class InputReader : ScriptableObject, IPlayerActions
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-
+        if (context.started)
+            FireEvent?.Invoke();
     }
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        RunEvent?.Invoke(context.performed);
+        if (context.performed)
+            RunEvent?.Invoke(true);
+        else
+            RunEvent?.Invoke(false);
     }
 }
