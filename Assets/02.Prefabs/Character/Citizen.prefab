@@ -438,9 +438,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _inputReader: {fileID: 0}
-  moveSpeed: 3
-  currentSpeed: 0
-  isRun: 0
+  _moveSpeed: 3
+  _runSpeed: 5
   currnetWayType: 0
 --- !u!114 &496036616105848781
 MonoBehaviour:
