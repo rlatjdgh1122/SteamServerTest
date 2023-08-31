@@ -8,10 +8,12 @@ using UnityEngine.InputSystem;
 
 public class AgentGrab : NetworkBehaviour
 {
-    [SerializeField] private Grab _GrabObject;
-    [SerializeField] private InputReader _inputReader;
+    [Header("스탯")]
     [SerializeField] private float Speed;
-    [SerializeField] private CameraController cameraController;
+    [SerializeField] private Transform _pivot;
+    [Header("참조 스크립트")]
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] private Grab _GrabObject;
 
     private Vector3 dir = Vector3.zero;
 
@@ -19,20 +21,17 @@ public class AgentGrab : NetworkBehaviour
     {
         _inputReader.FireEvent += OnHandleFire;
     }
-    private void Update()
-    {
-        Vector3 pos = cameraController.Cam.ScreenToWorldPoint(_inputReader.MousePostion);
-        dir = (pos - transform.position).normalized;
-    }
 
     private void OnHandleFire()
     {
         Debug.Log("버튼눌림");
 
-        GameObject obj = Instantiate(_GrabObject.gameObject, transform.position, Quaternion.identity);
-        obj.transform.up = dir;
+        var obj = Instantiate(_GrabObject.gameObject, _pivot.position, Quaternion.identity);
+        Debug.Log((Vector2)dir);
 
-        if (obj.transform.TryGetComponent(out Rigidbody2D rb))
+        obj.transform.up = _pivot.up;
+
+        if (obj.TryGetComponent(out Rigidbody2D rb))
         {
             rb.velocity = rb.transform.up * Speed;
         }

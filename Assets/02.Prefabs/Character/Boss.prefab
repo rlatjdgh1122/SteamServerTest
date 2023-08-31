@@ -16966,6 +16966,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteName: Gun
   SpriteNameFallback: []
+--- !u!1 &8411718425014307671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4996151328834405281}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4996151328834405281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411718425014307671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1065565612390673948}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8422192501185542042
 GameObject:
   m_ObjectHideFlags: 0
@@ -17508,10 +17539,11 @@ GameObject:
   - component: {fileID: 1065565612390673948}
   - component: {fileID: 8500912030424763581}
   - component: {fileID: 8500912030424763578}
+  - component: {fileID: 9030474685374891151}
   - component: {fileID: 4586518810081256177}
   - component: {fileID: 3117865225513964086}
   - component: {fileID: 1243419639351412152}
-  - component: {fileID: 9030474685374891151}
+  - component: {fileID: 3858631706949776311}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -17534,6 +17566,7 @@ Transform:
   - {fileID: 8119671188874219557}
   - {fileID: 6296332027827179541}
   - {fileID: 7858651087037964019}
+  - {fileID: 4996151328834405281}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17576,6 +17609,25 @@ MonoBehaviour:
   _moveSpeed: 3
   _runSpeed: 5
   currnetWayType: 0
+--- !u!114 &9030474685374891151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500912030424763579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728d2eebd4ef2ac498cb45b7ee6d421c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  Speed: 2
+  _pivot: {fileID: 4996151328834405281}
+  _inputReader: {fileID: 11400000, guid: d74c0212e881ff64fb3a831a156ccef7, type: 2}
+  _GrabObject: {fileID: 9176943711602935060, guid: 80212176af77bf44f9dbd9d9795a2ed2, type: 3}
 --- !u!114 &4586518810081256177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17648,7 +17700,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9030474685374891151
+--- !u!114 &3858631706949776311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17657,16 +17709,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8500912030424763579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728d2eebd4ef2ac498cb45b7ee6d421c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5924a67eb16d41f43ba71de3d9a1ac5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _GrabObject: {fileID: 9176943711602935060, guid: 80212176af77bf44f9dbd9d9795a2ed2, type: 3}
   _inputReader: {fileID: 11400000, guid: d74c0212e881ff64fb3a831a156ccef7, type: 2}
-  Speed: 2
-  cameraController: {fileID: 7769296198604541787}
+  _cameraController: {fileID: 7769296198604541787}
+  _pivot: {fileID: 4996151328834405281}
 --- !u!1 &8524452795372179527
 GameObject:
   m_ObjectHideFlags: 0

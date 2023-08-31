@@ -11,7 +11,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     public event Action<Vector2> MovementEvent;
     public event Action<bool> RunEvent;
     public event Action FireEvent;
-    public Vector2 MousePostion = Vector2.zero;
+    public Vector2 MousePostion { get; private set; }
 
     private Controls _controlAction;
 
