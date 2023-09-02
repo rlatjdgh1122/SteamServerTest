@@ -43,7 +43,7 @@ public class AgentMovement : NetworkBehaviour
 
     private Rigidbody2D _rb;
 
-   
+
     private void Awake()
     {
         _rb = (Rigidbody2D)GetComponent("Rigidbody2D");
@@ -64,6 +64,11 @@ public class AgentMovement : NetworkBehaviour
         SetSpeed(MOVE_TYPE.Idle);
     }
 
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = (inputVec * CurrentSpeed);
+    }
     private void HandleRun(bool value)
     {
         Debug.Log(value);
@@ -77,11 +82,6 @@ public class AgentMovement : NetworkBehaviour
             SetSpeed(MOVE_TYPE.Run);
         }
         else isRun = false;
-    }
-
-    private void FixedUpdate()
-    {
-        _rb.velocity = (inputVec * CurrentSpeed);
     }
     private void HandleMovement(Vector2 move)
     {
