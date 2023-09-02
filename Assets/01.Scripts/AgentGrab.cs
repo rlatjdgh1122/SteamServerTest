@@ -14,6 +14,8 @@ public class AgentGrab : NetworkBehaviour
     [Header("참조 스크립트")]
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private Grab _GrabObject;
+    [Header("기타")]
+    [SerializeField] private Collider2D _coll;
 
     private Vector3 dir = Vector3.zero;
 
@@ -24,14 +26,16 @@ public class AgentGrab : NetworkBehaviour
 
     private void OnHandleFire()
     {
-        Debug.Log("버튼눌림");
+        Debug.Log("발사");
 
-        var obj = Instantiate(_GrabObject.gameObject, _pivot.position, Quaternion.identity);
-        Debug.Log((Vector2)dir);
+        var instance = Instantiate(_GrabObject, _pivot.position, Quaternion.identity);
 
-        obj.transform.up = _pivot.up;
+        instance.SetDirection(dir);
+        instance.SetThisCollider(_coll);
 
-        if (obj.TryGetComponent(out Rigidbody2D rb))
+        instance.transform.up = _pivot.up;
+
+        if (instance.TryGetComponent(out Rigidbody2D rb))
         {
             rb.velocity = rb.transform.up * Speed;
         }
