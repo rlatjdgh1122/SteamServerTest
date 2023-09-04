@@ -437,6 +437,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  IsGrab: 1
   _inputReader: {fileID: 0}
   _moveSpeed: 3
   _runSpeed: 5

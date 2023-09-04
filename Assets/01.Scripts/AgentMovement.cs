@@ -12,7 +12,7 @@ public enum MOVE_TYPE
     Walk,
     Run
 }
-public class AgentMovement : NetworkBehaviour
+public class AgentMovement : Igrabable
 {
     private AnimationManager _anim;
 
@@ -40,13 +40,10 @@ public class AgentMovement : NetworkBehaviour
     private Vector2 inputVec { get; set; }
     private Vector2 checkVec { get; set; }
 
-
-    private Rigidbody2D _rb;
-
-
-    private void Awake()
+    protected override void Awake()
     {
-        _rb = (Rigidbody2D)GetComponent("Rigidbody2D");
+        base.Awake();
+
         _anim = (AnimationManager)transform.Find("Charater").GetComponent("AnimationManager");
 
         _inputReader.MovementEvent += HandleMovement;
@@ -67,14 +64,14 @@ public class AgentMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = (inputVec * CurrentSpeed);
+        rb.velocity = (inputVec * CurrentSpeed);
     }
     private void HandleRun(bool value)
     {
         Debug.Log(value);
         if (isIdle) return;
 
-        if (value)
+        if (value)  
         {
             isRun = true;
 

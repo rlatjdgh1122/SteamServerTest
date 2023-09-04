@@ -16,9 +16,20 @@ public class AgentGrab : NetworkBehaviour
     [SerializeField] private Grab _GrabObject;
     [Header("기타")]
     [SerializeField] private Collider2D _coll;
+    [SerializeField] private LineRenderer _lr;
 
     private Vector3 dir = Vector3.zero;
 
+    private void Awake()
+    {
+        _lr.startWidth = .2f;
+        _lr.endWidth = .2f;
+
+        _lr.SetPosition(0, _pivot.position);
+        _lr.positionCount = 2;
+
+        _lr.enabled = false;
+    }
     private void Start()
     {
         _inputReader.FireEvent += OnHandleFire;
@@ -26,11 +37,8 @@ public class AgentGrab : NetworkBehaviour
 
     private void OnHandleFire()
     {
-        Debug.Log("발사");
-
         var instance = Instantiate(_GrabObject, _pivot.position, Quaternion.identity);
 
-        instance.SetDirection(dir);
         instance.SetThisCollider(_coll);
 
         instance.transform.up = _pivot.up;
@@ -38,6 +46,8 @@ public class AgentGrab : NetworkBehaviour
         if (instance.TryGetComponent(out Rigidbody2D rb))
         {
             rb.velocity = rb.transform.up * Speed;
+
+            instance.SetDirection(transform.position - rb.transform.up);
         }
     }
 }
