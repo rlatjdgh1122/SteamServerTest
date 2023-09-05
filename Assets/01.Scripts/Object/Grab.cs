@@ -16,7 +16,7 @@ public class Grab : MonoBehaviour
     }
     public void SetDirection(Vector2 value)
     {
-        direction = value.normalized;
+        direction = value;
     }
     public void SetThisCollider(Collider2D value)
     {
@@ -30,10 +30,11 @@ public class Grab : MonoBehaviour
         Transform trm = collision?.transform.root.transform.Find("Pivot").transform;
 
         transform.position = trm.position;
+        transform.parent = trm.transform;
 
         if (collision.attachedRigidbody.TryGetComponent(out Igrabable component))
         {
-            component.SetGrabt(direction, power);
+            component.SetGrabt(direction, power, gameObject);
         }
     }
 }

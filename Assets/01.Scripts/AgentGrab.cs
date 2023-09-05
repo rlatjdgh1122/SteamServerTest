@@ -47,7 +47,7 @@ public class AgentGrab : NetworkBehaviour
         {
             rb.velocity = rb.transform.up * Speed;
 
-            instance.SetDirection(transform.position - rb.transform.up);
+            instance.SetDirection((_pivot.position - rb.transform.up).normalized);
         }
     }
 }

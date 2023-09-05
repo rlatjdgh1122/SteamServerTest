@@ -14,16 +14,23 @@ public class Igrabable : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    public void SetGrabt(Vector2 normal, float power)
+    public void SetGrabt(Vector2 normal, float power, GameObject grabObject)
     {
         if (!IsGrab) return;
-        Vector2 dir = normal - (Vector2)transform.position;
 
+        Debug.Log("normal : " + normal);
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(dir.normalized * power, .5f).SetEase(Ease.OutExpo)).
-            SetDelay(.8f).
-            Join(transform.DOMove(dir.normalized * power * .5f, .5f).SetEase(Ease.OutExpo));
+        seq.Append(transform.DOMove
+            (normal * power, .5f)
+            .SetEase(Ease.OutExpo))
+            .SetDelay(.8f)
+            .Join(transform.DOMove
+                (normal * power * .5f, .5f)
+            .SetEase(Ease.OutExpo))
+            .OnComplete(() =>
+            {
+                Destroy(grabObject);
+            });
 
     }
 
