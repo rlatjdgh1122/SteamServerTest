@@ -39,6 +39,7 @@ public class AgentGrab : NetworkBehaviour
     {
         var instance = Instantiate(_GrabObject, _pivot.position, Quaternion.identity);
 
+        Debug.Log("playerÂð: " + (Vector2)_pivot.position);
         instance.SetThisCollider(_coll);
 
         instance.transform.up = _pivot.up;
@@ -47,7 +48,8 @@ public class AgentGrab : NetworkBehaviour
         {
             rb.velocity = rb.transform.up * Speed;
 
-            instance.SetDirection((_pivot.position - rb.transform.up).normalized);
+            instance.SetDirection(rb.transform.up);
+
         }
     }
 }
