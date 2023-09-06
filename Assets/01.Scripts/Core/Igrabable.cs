@@ -18,16 +18,14 @@ public class Igrabable : NetworkBehaviour
     {
         if (!IsGrab) return;
 
-        Debug.Log("normal : " + normal + ";player : " + (Vector2)transform.position);
         Sequence seq = DOTween.Sequence();
 
-        Debug.Log("normaldldld"+(normal - (Vector2)transform.position));
         seq.Append(transform.DOMove
-            (-normal * power, .5f)
+            ((-normal * power) + (Vector2)transform.position, .5f)
             .SetEase(Ease.OutExpo))
             .SetDelay(.8f)
             .Join(transform.DOMove
-            (-normal * power * .5f, .5f)
+            ((-normal * (power / 5f)) + (Vector2)transform.position, .3f)
             .SetEase(Ease.OutExpo))
             .OnComplete(() =>
             {
