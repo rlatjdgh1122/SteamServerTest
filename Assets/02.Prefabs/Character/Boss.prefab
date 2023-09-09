@@ -17713,6 +17713,7 @@ MonoBehaviour:
   syncInterval: 0
   Speed: 10
   _pivot: {fileID: 4996151328834405281}
+  garbWaitingTime: 2
   _inputReader: {fileID: 11400000, guid: d74c0212e881ff64fb3a831a156ccef7, type: 2}
   _GrabObject: {fileID: 9176943711602935060, guid: 80212176af77bf44f9dbd9d9795a2ed2, type: 3}
   _coll: {fileID: 2013173674097756807}

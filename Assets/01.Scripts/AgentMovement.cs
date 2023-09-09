@@ -48,6 +48,7 @@ public class AgentMovement : Igrabable
 
         _inputReader.MovementEvent += HandleMovement;
         _inputReader.RunEvent += HandleRun;
+
     }
     void Start()
     {
@@ -71,7 +72,7 @@ public class AgentMovement : Igrabable
         Debug.Log(value);
         if (isIdle) return;
 
-        if (value)  
+        if (value)
         {
             isRun = true;
 
@@ -110,7 +111,7 @@ public class AgentMovement : Igrabable
         else
             isIdle = false;
     }
-    public void SetSpeed(MOVE_TYPE type)
+    private void SetSpeed(MOVE_TYPE type)
     {
         if (type == MOVE_TYPE.Idle)
             CurrentSpeed = 0;

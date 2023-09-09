@@ -31,13 +31,5 @@ public class Igrabable : NetworkBehaviour
             {
                 Destroy(grabObject);
             });
-
-    }
-
-    private IEnumerator GrabtCoroutine(Vector2 normal, float power)
-    {
-        rb.AddForce(normal * power, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(1f);
-        rb.AddForce(normal * power * .5f, ForceMode2D.Impulse);
     }
 }

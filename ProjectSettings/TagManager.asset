@@ -48,3 +48,6 @@ TagManager:
   - name: GrabObject
     uniqueID: 4189750083
     locked: 0
+  - name: Abstacle
+    uniqueID: 1457959093
+    locked: 0
