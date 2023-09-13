@@ -1,2 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UI/common.uss?fileID=7433441132597879392&amp;guid=56c0f9541f50e58478174c0d9bd8e303&amp;type=3#common" />
+    <ui:VisualElement name="container" style="flex-grow: 1; justify-content: space-around; align-items: center;">
+        <ui:VisualElement name="menu-box" style="flex-basis: 500px; align-items: stretch; justify-content: flex-start; left: auto; right: auto; width: 700px; height: 350px; flex-grow: 0; flex-direction: column; flex-shrink: 1; margin-top: 200px;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="btn" style="flex-shrink: 1; flex-grow: 1; margin-top: 50px; margin-bottom: 50px;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="btn" style="flex-grow: 1; flex-shrink: 1; background-color: rgb(0, 0, 0); margin-top: 50px; margin-bottom: 50px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
