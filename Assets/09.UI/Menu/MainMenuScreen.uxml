@@ -1,9 +1,22 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="LobbyTemplate" src="project://database/Assets/09.UI/LobbyTemplate/LobbyTemplate.uxml?fileID=9197481963319205126&amp;guid=9e54de15f1e91bf4f993006d8246fcbb&amp;type=3#LobbyTemplate" />
     <Style src="project://database/Assets/09.UI/common.uss?fileID=7433441132597879392&amp;guid=56c0f9541f50e58478174c0d9bd8e303&amp;type=3#common" />
+    <Style src="project://database/Assets/09.UI/Menu/MainMenuScreen.uss?fileID=7433441132597879392&amp;guid=276a4ebca2fd6c8419fac057d959e570&amp;type=3#MainMenuScreen" />
     <ui:VisualElement name="container" style="flex-grow: 1; justify-content: space-around; align-items: center;">
         <ui:VisualElement name="menu-box" style="flex-basis: 500px; align-items: stretch; justify-content: flex-start; left: auto; right: auto; width: 700px; height: 350px; flex-grow: 0; flex-direction: column; flex-shrink: 1; margin-top: 200px;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="btn" style="flex-shrink: 1; flex-grow: 1; margin-top: 50px; margin-bottom: 50px;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="btn" style="flex-grow: 1; flex-shrink: 1; background-color: rgb(0, 0, 0); margin-top: 50px; margin-bottom: 50px;" />
+            <ui:Button text="CreateRoom" display-tooltip-when-elided="true" name="btn-create-room" class="btn" style="flex-shrink: 1; flex-grow: 1; margin-top: 50px; margin-bottom: 50px;" />
+            <ui:Button text="Lobby" display-tooltip-when-elided="true" name="btn-lobby" class="btn" style="flex-grow: 1; flex-shrink: 1; background-color: rgb(0, 0, 0); margin-top: 50px; margin-bottom: 50px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="popup-panel" style="justify-content: space-around;">
+        <ui:VisualElement name="lobby-frame" style="width: 900px; height: 900px; -unity-slice-left: 5; -unity-slice-top: 5; -unity-slice-right: 5; -unity-slice-bottom: 5; background-color: rgba(156, 156, 156, 0.69); -unity-background-image-tint-color: rgb(255, 255, 255); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-between; align-items: center; flex-direction: column;">
+            <ui:ScrollView name="lobby-container" style="height: 750px; align-items: stretch; justify-content: flex-start; width: 850px; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: resource(&apos;pro/actionTreeBackgroundWithoutBorder&apos;); background-color: rgb(255, 255, 255); -unity-background-image-tint-color: rgb(255, 255, 255); flex-grow: 0; flex-direction: column; -unity-text-align: upper-left;">
+                <ui:Instance template="LobbyTemplate" name="LobbyTemplate" style="flex-direction: column; align-items: stretch; justify-content: flex-start; flex-grow: 0;" />
+            </ui:ScrollView>
+            <ui:VisualElement name="btn-container" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: nowrap; -unity-text-align: upper-left;">
+                <ui:Button text="Cancel" display-tooltip-when-elided="true" name="btn-cancel" style="width: 200px; height: 50px; font-size: 35px; -unity-text-outline-width: 0; text-shadow: 0 0 5px rgb(0, 0, 0); white-space: nowrap; flex-shrink: 0; right: 200px;" />
+                <ui:Button text="Refresh" display-tooltip-when-elided="true" name="btn-refresh" style="width: 200px; height: 50px; font-size: 35px; text-shadow: 0 0 5px rgb(0, 0, 0); left: 200px;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

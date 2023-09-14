@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &260774147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -647,7 +647,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 590569516}
-  - component: {fileID: 590569517}
   m_Layer: 0
   m_Name: LobbiesManager
   m_TagString: Untagged
@@ -670,25 +669,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &590569517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590569515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d34373dd7b0f74a81f0d7e3df2453d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleText: {fileID: 1582584151}
-  lobbiesMenu: {fileID: 260774146}
-  lobbyDataItemPrefab: {fileID: 5135115214040868330, guid: 626164413322f4b4faa01b5698c52b5d, type: 3}
-  lobbyListContent: {fileID: 1560445155}
-  lobbiesButton: {fileID: 927677097}
-  hostButton: {fileID: 1941873701}
-  listOfLobbies: []
 --- !u!1 &843634113
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfdf90be8b64ea44ac0ef993df330ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lobbyTemplate: {fileID: 9197481963319205126, guid: 9e54de15f1e91bf4f993006d8246fcbb, type: 3}
+  _customNetworkManager: {fileID: 1606155089}
 --- !u!1 &927677097
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,8 +817,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LobbiesListManager, Assembly-CSharp
-        m_MethodName: GetListOfLobbies
+        m_TargetAssemblyTypeName: SteamLobby, Assembly-CSharp
+        m_MethodName: GetLobbiesList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1330,7 +1312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1427023882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,7 +1624,6 @@ GameObject:
   - component: {fileID: 1606155089}
   - component: {fileID: 1606155090}
   - component: {fileID: 1606155091}
-  - component: {fileID: 1606155092}
   m_Layer: 0
   m_Name: NetWorkManager
   m_TagString: Untagged
@@ -1735,20 +1716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1606155092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606155087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f44c4587cfdfd429519d5847e83066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lobbyIDs: []
-  CurrentLobbyID: 0
 --- !u!1 &1941873701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1606155092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SteamLobby, Assembly-CSharp
         m_MethodName: HostLobby
         m_Mode: 1

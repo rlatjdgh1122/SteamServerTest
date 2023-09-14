@@ -1,5 +1,5 @@
 .btn {
-    background-image: url('project://database/Assets/04.Sprites/UI/Game%20UI%20collection%20FREE%20version/Elements-01.png?fileID=1303257325&guid=15238b8b2cc8b1249b26db7292e04483&type=3#Elements-01_0');
+    background-image: url('project://database/Assets/HeroEditor4D/InventorySystem/Images/EleganceUI/ButtonB.png?fileID=21300000&guid=d2abde0c196653345af022818406bace&type=3#ButtonB');
     -unity-slice-left: 50;
     -unity-slice-top: 50;
     -unity-slice-right: 50;
@@ -10,7 +10,8 @@
     padding-right: 12px;
     padding-top: 4px;
     padding-bottom: 12px;
-    -unity-text-outline-width: 1px;
-    font-size: 75px;
+    -unity-text-outline-width: 0;
+    font-size: 30px;
     -unity-font: url('project://database/Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-ThinItalic.ttf?fileID=12800000&guid=b2ea3b3f1765e544b9eb5bd1a93a91ce&type=3#Roboto-ThinItalic');
+    text-shadow: 0 0 2px rgba(0, 0, 0, 255);
 }

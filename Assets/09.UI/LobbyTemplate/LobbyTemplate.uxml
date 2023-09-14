@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UI/common.uss?fileID=7433441132597879392&amp;guid=56c0f9541f50e58478174c0d9bd8e303&amp;type=3#common" />
+    <ui:VisualElement name="lobby-template" style="flex-grow: 1;">
+        <ui:Label text="room name" display-tooltip-when-elided="true" name="room-name" style="font-size: 14px; margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; padding-left: 4px; padding-top: 4px; padding-bottom: 1px;" />
+        <ui:Label text="4 / 4" display-tooltip-when-elided="true" name="room-count" style="font-size: 14px; margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; padding-left: 4px; padding-top: 4px; padding-bottom: 1px;" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="btn-join-lobby" class="btn" />
+    </ui:VisualElement>
+</ui:UXML>
