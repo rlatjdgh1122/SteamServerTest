@@ -25,7 +25,7 @@ public class LobbyUIManager
         root.Q<Button>("btn-cancel").RegisterCallback<ClickEvent>(OnLobbyCanel);
         root.Q<Button>("btn-refresh").RegisterCallback<ClickEvent>(OnLobbyRefresh);
 
-        SteamLobby.Instance.GetLobbiesList();
+        //SteamLobby.Instance.GetLobbiesList();
     }
 
     private void OnLobbyRefresh(ClickEvent evt)

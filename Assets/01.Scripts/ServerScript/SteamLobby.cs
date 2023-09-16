@@ -17,9 +17,7 @@ public class SteamLobby
 
     public SteamLobby(CustomNetworkManager manager)
     {
-
         _manager = manager;
-
 
         Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);

@@ -17,8 +17,6 @@ public class MainMenuScreen : MonoBehaviour
     private void Awake()
     {
         _uiDocument = (UIDocument)GetComponent("UIDocument");
-
-
     }
     private void OnEnable()
     {
